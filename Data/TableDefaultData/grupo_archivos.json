@@ -1,0 +1,15 @@
+{
+	"columns":"extension|name",
+	"values":[
+		"aac,mid,mp3,oga,ogx,wav,weba|Audio",
+		"arc,bz,bz2,tar,rar,zip,7z|Comprimidos",
+		"abw,csv,doc,docx,pdf,ppt,pptx,txt,xls,xlsx,xml,odp,ods,odt|Documentos",
+		"fla,swf|Flash",
+		"ttf,otf,woff,woff2|Fonts",
+		"ani,ico|Iconos y cursores",
+		"bmp,gif,jpeg,jpg,pcx,psd,png,pxr,raw,sct,svg,tif,tiff,tga,webp|Imagen",
+		"avi,flv,m3u8,mov,mpeg,mpg,mp4,ogv,ts,webm,wmv,3gp,3g2|Video",
+		"ai,eps,idml|Vector",
+		"css,htm,html,js,json,xhtml|Web"
+	]
+}

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Document   : grupo_archivos.xml
+    Author     : Isaac Mujica Rivas
+    Description:
+        Structure for the grupo_archivos table.
+-->
+<table>
+    <column>
+        <name>codgrupoarchivo</name>
+        <type>serial</type>
+        <null>NO</null>
+    </column>
+    <column>
+        <name>extension</name>
+        <type>character varying(255)</type>
+        <null>NO</null>
+    </column>
+    <column>
+        <name>name</name>
+        <type>character varying(255)</type>
+        <null>NO</null>
+    </column>
+    <constraint>
+        <name>grupo_archivos_pkey</name>
+        <type>PRIMARY KEY (codgrupoarchivo)</type>
+    </constraint>
+    <constraint>
+        <name>uniq_name</name>
+        <type>UNIQUE (name)</type>
+    </constraint>
+</table>
