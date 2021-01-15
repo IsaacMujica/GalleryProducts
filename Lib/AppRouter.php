@@ -247,7 +247,7 @@ final class AppRouter
      */
     private function newAppController(string $uri, string $pageName = '')
     {
-        return \FS_DEBUG ? new \FacturaScripts\Core\App\AppDebugController($uri, $pageName) : new AppController($uri, $pageName);
+        return \FS_DEBUG ? new \FacturaScripts\Core\App\AppDebugController($uri, $pageName) : new \FacturaScripts\Core\App\AppController($uri, $pageName);
     }
 
     /**
