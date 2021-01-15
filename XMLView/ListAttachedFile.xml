@@ -21,25 +21,25 @@
 -->
 <view>
     <columns>
-        <column name="code" order="100">
+        <column name="code" display="none" order="100" tooltip="1">
             <widget type="text" fieldname="idfile" onclick="EditAttachedFile" />
         </column>
-        <column name="file-name" order="110">
+        <column name="file-name" display="center" order="110" tooltip="1">
             <widget type="text" fieldname="filename" />
         </column>
-        <column name="full-path" order="120">
+        <column name="full-path" display="none" order="120" tooltip="1">
             <widget type="text" fieldname="path" />
         </column>
-        <column name="type" order="130">
+        <column name="type" display="none" order="130" tooltip="1">
             <widget type="text" fieldname="mimetype" />
         </column>
-        <column name="size" display="right" order="140">
+        <column name="size" display="none" order="140" tooltip="1">
             <widget type="number" fieldname="size" decimal="0" />
         </column>
-        <column name="date" display="right" order="150">
+        <column name="date" display="none" order="150" tooltip="1">
             <widget type="date" fieldname="date" />
         </column>
-        <column name="hour" display="right" order="160">
+        <column name="hour" display="none" order="160" tooltip="1">
             <widget type="text" fieldname="hour" />
         </column>
     </columns>

@@ -92,7 +92,78 @@
             </div>
         </div>
         {# -- Table -- #}
-        <div class="table-responsive">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col">
+                    <div class="content">
+                        {% if (currentView.cursor | length > 0) and currentView.settings.checkBoxes %}
+                            <div class="form-check form-check-inline mb-2 mr-sm-2 mb-sm-0">
+                                <label for="listActionCBCustom" class="btn btn-success listActionCB mb-2">Seleccionar todos</label>
+                                <input class="form-check-input d-none listActionCB" id="listActionCBCustom" type="checkbox" />
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center align-items-end align-items-center">
+                {% set rowStatus = currentView.getRow('status') %}
+                {% for model in currentView.cursor %}
+                    {% set trClass = currentView.settings.clickable ? 'clickableRow ' ~ rowStatus.trClass(model) : rowStatus.trClass(model) %}
+                    {% set trTitle = rowStatus.trTitle(model) %}
+                    <div class="col mb-3" style="max-width: 300px">
+                        <div class="content {{ trClass }}" title="{{ trTitle }}" data-href="{{ asset(model.url()) }}">
+                            <div class="card" {# {{ currentView.getTooltips(model) | raw }} #}>
+
+                                {{ currentView.getPrevisualizedImage(model, asset('MyFiles/' ~ model.path)) | raw }}
+                                {# <img src="..." class="card-img-top img-fluid" alt="..."> #}
+                                <div class="card-body">
+                                    {% for column in currentView.getColumns() %}
+                                        {{ column.cardGalleryValue(model) | raw }}
+                                    {% endfor %}
+
+                                    {% if currentView.settings.checkBoxes %}
+                                        <div class="cancelClickable text-center">
+                                            <div class="form-check form-check-inline mb-2 mr-sm-2 mb-sm-0">
+                                                <input class="form-check-input d-none listAction" id="listActionCustom-{{ model.primaryColumnValue() }}" type="checkbox" name="code[]" value="{{ model.primaryColumnValue() }}" />
+                                                <label for="listActionCustom-{{ model.primaryColumnValue() }}" class="btn btn-info mb-2"></label>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {# {% set trClass = currentView.settings.clickable ? 'clickableRow ' ~ rowStatus.trClass(model) : rowStatus.trClass(model) %}
+                    {% set trTitle = rowStatus.trTitle(model) %}
+                    <tr class="{{ trClass }}" title="{{ trTitle }}" data-href="{{ asset(model.url()) }}">
+                        {% if currentView.settings.checkBoxes %}
+                            <td class="cancelClickable">
+                                <div class="form-check form-check-inline mb-2 mr-sm-2 mb-sm-0">
+                                    <input class="form-check-input listAction" type="checkbox" name="code[]" value="{{ model.primaryColumnValue() }}" />
+                                </div>
+                            </td>
+                        {% endif %}
+                        {% for column in currentView.getColumns() %}
+                            {{ column.tableCell(model) | raw }}
+                        {% endfor %}
+                    </tr> #}
+                {% else %}
+                    <div class="col">
+                        <div class="content">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="card-title alert alert-warning" role="alert">
+                                        {{ i18n.trans('no-data') }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        {# <div class="table-responsive">
             {% set tableClass = fsc.toolBox().appSettings().get('default', 'tablesize') == 'small' ? 'table-sm' : '' %}
             <table class="table table-hover mb-0 {{ tableClass }}">
                 <thead>
@@ -133,7 +204,7 @@
                     {% endfor %}
                 </tbody>
             </table>
-        </div>
+        </div> #}
         {# -- Totals -- #}
         {% if currentView.totalAmounts is not empty %}
             <div class="table-responsive">

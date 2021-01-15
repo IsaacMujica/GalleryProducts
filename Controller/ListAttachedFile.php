@@ -19,6 +19,7 @@
 namespace FacturaScripts\Plugins\CloudGallery\Controller;
 
 use FacturaScripts\Core\Lib\ExtendedController\ListController;
+use FacturaScripts\Dinamic\Lib\ExtendedController;
 
 /**
  * Controller to list the items in the AttachedFile model
@@ -26,7 +27,7 @@ use FacturaScripts\Core\Lib\ExtendedController\ListController;
  * @author Carlos García Gómez      <carlos@facturascripts.com>
  * @author Francesc Pineda Segarra  <francesc.pineda.segarra@gmail.com>
  */
-class ListAttachedFile extends ListController
+class ListAttachedFile extends ExtendedController\ListGalleryController
 {
 
     /**

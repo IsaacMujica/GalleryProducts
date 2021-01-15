@@ -1,0 +1,10 @@
+input.listAction:checked + label[for^="listActionCustom-"] {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+input.listAction:checked + label[for^="listActionCustom-"]::after {
+    content: "Seleccionado";
+}
+input.listAction + label[for^="listActionCustom-"]::after {
+    content: "Seleccionar";
+}
